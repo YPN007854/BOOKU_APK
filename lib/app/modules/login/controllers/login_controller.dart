@@ -55,7 +55,7 @@ class LoginController extends GetxController {
         if (response.statusCode == 200) {
           ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);
         print(responseLogin.data!.userID != null);
-        log("KONTOL");
+        log("Geusan");
           if (responseLogin.data != null && responseLogin.data!.userID != null) {
             await StorageProvider.write(
                 StorageKey.iduser, responseLogin.data!.userID!.toString());

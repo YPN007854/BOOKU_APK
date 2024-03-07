@@ -53,7 +53,7 @@ class RegisterController extends GetxController {
             }
         );
         if (response.statusCode == 200) {
-          Get.snackbar("selamat", "anda berhasil");
+          Get.snackbar("selamat", "anda berhasil membuat akun");
           Get.offAllNamed(Routes.LOGIN);
         }
       } else {
