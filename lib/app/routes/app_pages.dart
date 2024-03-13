@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/detail_buku/bindings/detail_buku_binding.dart';
+import '../modules/detail_buku/views/detail_buku_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_BUKU,
+      page: () => const DetailBukuView(),
+      binding: DetailBukuBinding(),
     ),
   ];
 }
