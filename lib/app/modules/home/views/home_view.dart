@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:ukkspesial/app/routes/app_pages.dart';
+import 'package:ukkspesial/app/widget/base64/base64widget.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -146,6 +147,7 @@ class HomeView extends GetView<HomeController> {
                                     width: 160,
                                     height: 200,
                                     decoration: BoxDecoration(
+                                      image: DecorationImage(image: base64widget(state![index].cover??''), fit: BoxFit.cover),
                                         borderRadius: BorderRadius.circular(20),
                                         color: Colors.red),
                                   ),
