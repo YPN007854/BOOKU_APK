@@ -1,4 +1,4 @@
-/// data : {"bukuid":1,"judul_buku":"Rickey","penulis":"Krystina","penerbit":"Dewitt","tahun_terbit":1974,"created_at":"2024-02-29T05:33:24.000000Z","updated_at":"2024-02-29T05:33:24.000000Z"}
+/// data : {"bukuid":1,"judul_buku":"Si Juki 2","penulis":"Juldan","penerbit":"JuldanMedia","tahun_terbit":2014,"cover":null,"status":"dipinjam","created_at":"2024-03-19T03:28:25.000000Z","updated_at":"2024-03-19T03:28:25.000000Z"}
 
 class ResponseBukuView {
   ResponseBukuView({
@@ -20,12 +20,14 @@ class ResponseBukuView {
 }
 
 /// bukuid : 1
-/// judul_buku : "Rickey"
-/// penulis : "Krystina"
-/// penerbit : "Dewitt"
-/// tahun_terbit : 1974
-/// created_at : "2024-02-29T05:33:24.000000Z"
-/// updated_at : "2024-02-29T05:33:24.000000Z"
+/// judul_buku : "Si Juki 2"
+/// penulis : "Juldan"
+/// penerbit : "JuldanMedia"
+/// tahun_terbit : 2014
+/// cover : null
+/// status : "dipinjam"
+/// created_at : "2024-03-19T03:28:25.000000Z"
+/// updated_at : "2024-03-19T03:28:25.000000Z"
 
 class DataBukuView {
   DataBukuView({
@@ -34,6 +36,8 @@ class DataBukuView {
       this.penulis, 
       this.penerbit, 
       this.tahunTerbit, 
+      this.cover, 
+      this.status, 
       this.createdAt, 
       this.updatedAt,});
 
@@ -43,6 +47,8 @@ class DataBukuView {
     penulis = json['penulis'];
     penerbit = json['penerbit'];
     tahunTerbit = json['tahun_terbit'];
+    cover = json['cover'];
+    status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -51,6 +57,8 @@ class DataBukuView {
   String? penulis;
   String? penerbit;
   int? tahunTerbit;
+  dynamic cover;
+  String? status;
   String? createdAt;
   String? updatedAt;
 
@@ -61,6 +69,8 @@ class DataBukuView {
     map['penulis'] = penulis;
     map['penerbit'] = penerbit;
     map['tahun_terbit'] = tahunTerbit;
+    map['cover'] = cover;
+    map['status'] = status;
     map['created_at'] = createdAt;
     map['updated_at'] = updatedAt;
     return map;

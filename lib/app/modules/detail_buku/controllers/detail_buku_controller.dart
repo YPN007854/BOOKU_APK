@@ -4,7 +4,7 @@ import 'package:ukkspesial/app/data/constant/endpoint.dart';
 import 'package:ukkspesial/app/data/model/response_buku_view.dart';
 import 'package:ukkspesial/app/data/provider/api_provider.dart';
 
-class DetailBukuController extends GetxController with StateMixin<List<DataBukuView>> {
+class DetailBukuController extends GetxController with StateMixin<DataBukuView> {
 
   final count = 0.obs;
   @override
@@ -33,7 +33,7 @@ class DetailBukuController extends GetxController with StateMixin<List<DataBukuV
         if(responseBook.data == null){
           change(null, status:  RxStatus.empty());
         } else {
-          change(responseBook.data as List<DataBukuView>?, status: RxStatus.success());
+          change(responseBook.data, status: RxStatus.success());
         }
       } else {
         change(null, status: RxStatus.error("Gagal mengambil data"));

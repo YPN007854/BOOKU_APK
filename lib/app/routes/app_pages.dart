@@ -6,6 +6,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/peminjaman/bindings/peminjaman_binding.dart';
+import '../modules/peminjaman/views/peminjaman_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 
@@ -14,7 +16,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -36,6 +38,11 @@ class AppPages {
       name: _Paths.DETAIL_BUKU,
       page: () => const DetailBukuView(),
       binding: DetailBukuBinding(),
+    ),
+    GetPage(
+      name: _Paths.PEMINJAMAN,
+      page: () => const PeminjamanView(),
+      binding: PeminjamanBinding(),
     ),
   ];
 }
