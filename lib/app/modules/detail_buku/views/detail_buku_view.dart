@@ -35,9 +35,9 @@ class DetailBukuView extends GetView<DetailBukuController> {
                                   borderRadius: BorderRadius.circular(10),
                                   color: Colors.red,
                                   image: DecorationImage(
-                                      image: base64widget(state?.cover))),
+                                      image: base64widget(state?.cover??'-')),
                             ),
-                          ],
+                            )],
                         ),
                       ),
                       SizedBox(
@@ -113,12 +113,21 @@ class DetailBukuView extends GetView<DetailBukuController> {
                           minimumSize: const Size.fromHeight(50), // NEW
                         ),
                         onPressed: () {
-                          Get.toNamed(Routes.PEMINJAMAN, parameters: {
-                            'judul_buku': state?.judulBuku ?? '',
-                            'id' : state?.bukuid.toString() ??''
-                          });
+                          if(state?.status != null){
+                            if(state?.status == 'dipinjam'){
+                              Get.toNamed(Routes.BUKTI_PEMINJAMAN, parameters: {
+                                'tanggal_peminjaman' : state?.peminjamans?[0].tanggalPengembalian ?? ''
+                              });
+                            }
+                            else if(state?.status == 'tersedia'){
+                              Get.toNamed(Routes.PEMINJAMAN, parameters: {
+                                'judul_buku': state?.judulBuku ?? '',
+                                'id' : state?.bukuid.toString() ??''
+                              });
+                            }
+                          }
                         },
-                        child: Text("Peminjaman"))),
+                        child: state?.status != null && state?.status == 'dipinjam' ? Text('Bukti Peminjaman'):state?.status != null && state?.status == 'tersedia' ? Text('Peminjaman'):Text('-'))),
                 ],
               ),
             ),

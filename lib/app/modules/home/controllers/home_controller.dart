@@ -5,7 +5,7 @@ import 'package:ukkspesial/app/data/model/response_buku.dart';
 import 'package:ukkspesial/app/data/provider/api_provider.dart';
 
 class HomeController extends GetxController with StateMixin<List<DataBuku>> {
-  //TODO: Implement HomeController
+  var index = 0.obs;
 
   final count = 0.obs;
   @override
@@ -22,6 +22,13 @@ class HomeController extends GetxController with StateMixin<List<DataBuku>> {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  void onTap(int index){
+    print("Tapped index: $index");
+    print("Current index: ${this.index.value}");
+    this.index.value = index;
+    print("New index: ${this.index.value}");
   }
 
   Future<void> getData() async {

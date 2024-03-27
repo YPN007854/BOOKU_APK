@@ -7,8 +7,11 @@ import 'package:ukkspesial/app/data/constant/endpoint.dart';
 import 'package:ukkspesial/app/data/model/response_peminjaman.dart';
 import 'package:ukkspesial/app/data/provider/api_provider.dart';
 import 'package:ukkspesial/app/data/provider/storage_provider.dart';
+import 'package:ukkspesial/app/modules/detail_buku/controllers/detail_buku_controller.dart';
 
 class PeminjamanController extends GetxController with StateMixin<DataPinjam> {
+  DetailBukuController detailBukuController =
+      Get.put(DetailBukuController(), permanent: true);
   final loading = false.obs;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController tanggalPinjamController = TextEditingController();
@@ -43,6 +46,7 @@ class PeminjamanController extends GetxController with StateMixin<DataPinjam> {
           "tanggal_pengembalian": tanggalKembaliController.text.toString(),
         });
         if (response.statusCode == 200) {
+          await detailBukuController.getData();
           Get.back();
         } else {
           Get.snackbar("Sory", "Add Peminjaman Gagal",

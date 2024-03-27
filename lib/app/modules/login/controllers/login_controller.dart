@@ -60,7 +60,7 @@ class LoginController extends GetxController {
             await StorageProvider.write(
                 StorageKey.iduser, responseLogin.data!.userID!.toString());
             await StorageProvider.write(StorageKey.status, "logged");
-            Get.offAllNamed(Routes.HOME);
+            Get.offAllNamed(Routes.LAYOUT);
           }
         }
       } else {

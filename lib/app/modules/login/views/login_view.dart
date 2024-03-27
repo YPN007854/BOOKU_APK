@@ -16,7 +16,7 @@ class LoginView extends GetView<LoginController> {
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        height: double.infinity,
+        height: MediaQuery.of(context).size.height,
         color: Color(0x9b04d619),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Center(

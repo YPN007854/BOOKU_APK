@@ -1,9 +1,13 @@
 import 'package:get/get.dart';
 
+import '../modules/bukti_peminjaman/bindings/bukti_peminjaman_binding.dart';
+import '../modules/bukti_peminjaman/views/bukti_peminjaman_view.dart';
 import '../modules/detail_buku/bindings/detail_buku_binding.dart';
 import '../modules/detail_buku/views/detail_buku_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/layout/bindings/layout_binding.dart';
+import '../modules/layout/views/layout_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/peminjaman/bindings/peminjaman_binding.dart';
@@ -43,6 +47,16 @@ class AppPages {
       name: _Paths.PEMINJAMAN,
       page: () => const PeminjamanView(),
       binding: PeminjamanBinding(),
+    ),
+    GetPage(
+      name: _Paths.LAYOUT,
+      page: () => const LayoutView(),
+      binding: LayoutBinding(),
+    ),
+    GetPage(
+      name: _Paths.BUKTI_PEMINJAMAN,
+      page: () => const BuktiPeminjamanView(),
+      binding: BuktiPeminjamanBinding(),
     ),
   ];
 }
