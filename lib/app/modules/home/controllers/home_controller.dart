@@ -5,7 +5,7 @@ import 'package:ukkspesial/app/data/model/response_buku.dart';
 import 'package:ukkspesial/app/data/provider/api_provider.dart';
 
 class HomeController extends GetxController with StateMixin<List<DataBuku>> {
-  var index = 0.obs;
+  var index = 1.obs;
 
   final count = 0.obs;
   @override

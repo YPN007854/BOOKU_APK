@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:ukkspesial/app/modules/koleksi/bindings/koleksi_binding.dart';
+import 'package:ukkspesial/app/modules/koleksi/views/koleksi_view.dart';
 
 import '../modules/bukti_peminjaman/bindings/bukti_peminjaman_binding.dart';
 import '../modules/bukti_peminjaman/views/bukti_peminjaman_view.dart';
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.BUKTI_PEMINJAMAN,
       page: () => const BuktiPeminjamanView(),
       binding: BuktiPeminjamanBinding(),
+    ),
+    GetPage(
+      name: _Paths.KOLEKSI,
+      page: () => KoleksiView(),
+      binding: KoleksiBinding(),
     ),
   ];
 }

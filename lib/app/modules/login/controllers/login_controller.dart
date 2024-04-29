@@ -49,8 +49,8 @@ class LoginController extends GetxController {
       if (formKey.currentState!.validate()) {
         final response =
             await ApiProvider.instance().post(Endpoint.login, data: {
-          "Email": EmailController.text.toString(),
-          "Password": PasswordController.text.toString()
+          "email": EmailController.text.toString(),
+          "password": PasswordController.text.toString()
         });
         if (response.statusCode == 200) {
           ResponseLogin responseLogin = ResponseLogin.fromJson(response.data);

@@ -7,6 +7,7 @@ class Endpoint {
   static const String register = "${BaseUrlApi}register";
 
   //Book
+  static const String user = "${BaseUrlApi}user";
   static const String buku = "${BaseUrlApi}buku";
   static const String peminjaman = "${BaseUrlApi}peminjaman";
   static const String kategoribuku = "${BaseUrlApi}kategoribuku";

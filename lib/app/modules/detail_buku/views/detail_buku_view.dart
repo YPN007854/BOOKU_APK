@@ -32,12 +32,13 @@ class DetailBukuView extends GetView<DetailBukuController> {
                               width: 130,
                               height: 190,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.red,
-                                  image: DecorationImage(
-                                      image: base64widget(state?.cover??'-')),
-                            ),
-                            )],
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.red,
+                                image: DecorationImage(
+                                    image: base64widget(state?.cover ?? '')),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(
@@ -101,33 +102,40 @@ class DetailBukuView extends GetView<DetailBukuController> {
                       title: Text("${state?.judulBuku}"),
                       subtitle: Text("Penulis ${state?.penulis}"),
                       trailing: Text(state?.status ?? '-')),
-
                   SizedBox(
                     height: 30,
                   ),
-
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50), // NEW
-                        ),
-                        onPressed: () {
-                          if(state?.status != null){
-                            if(state?.status == 'dipinjam'){
-                              Get.toNamed(Routes.BUKTI_PEMINJAMAN, parameters: {
-                                'tanggal_peminjaman' : state?.peminjamans?[0].tanggalPengembalian ?? ''
-                              });
+                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50), // NEW
+                          ),
+                          onPressed: () {
+                            if (state?.status != null) {
+                              if (state?.status == 'dipinjam') {
+                                Get.toNamed(Routes.BUKTI_PEMINJAMAN,
+                                    parameters: {
+                                      'tanggal_peminjaman': state
+                                              ?.peminjamans?[0]
+                                              .tanggalPengembalian ??
+                                          ''
+                                    });
+                              } else if (state?.status == 'tersedia') {
+                                Get.toNamed(Routes.PEMINJAMAN, parameters: {
+                                  'judul_buku': state?.judulBuku ?? '',
+                                  'id': state?.bukuid.toString() ?? ''
+                                });
+                              }
                             }
-                            else if(state?.status == 'tersedia'){
-                              Get.toNamed(Routes.PEMINJAMAN, parameters: {
-                                'judul_buku': state?.judulBuku ?? '',
-                                'id' : state?.bukuid.toString() ??''
-                              });
-                            }
-                          }
-                        },
-                        child: state?.status != null && state?.status == 'dipinjam' ? Text('Bukti Peminjaman'):state?.status != null && state?.status == 'tersedia' ? Text('Peminjaman'):Text('-'))),
+                          },
+                          child: state?.status != null &&
+                                  state?.status == 'dipinjam'
+                              ? Text('Bukti Peminjaman')
+                              : state?.status != null &&
+                                      state?.status == 'tersedia'
+                                  ? Text('Peminjaman')
+                                  : Text('-'))),
                 ],
               ),
             ),
